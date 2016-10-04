@@ -1,0 +1,54 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <title> NeighbourHood Map</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <aside class="side-bar">
+        <div class="top-bar" id="top-bar">
+          <div class="input-holder"><input type="text" placeholder="Enter the place" class="input" id="find" data-bind="textInput: place ,valueUpdate: input">
+            <button id="zoom-btn" class="btn" data-bind="click: find">&#x27f6;</button>
+            <a id="menu" data-bind="click:open_menu"> &#9776;</a>
+          </div>
+        </div>
+        <div class="button-holder" data-bind="visible:map_loaded">
+          <button id="filter-btn" class="btn" data-bind="click: filter_toggle">filter</button>
+          <button class="fav-btn btn" data-bind="click: fav_toggle">favourite</button>
+        </div>
+        <div id="filter-list" data-bind="visible: show_filter">
+          <ul class="list-filter" data-bind="foreach: filter_list">
+            <li data-bind="text: filter ,click: $parent.filterLocations" class="filter_item" ></li>
+          </ul>
+        </div>
+        <div id="fav-list" class="filter-list" data-bind="visible: show_fav">
+          <ul class="list-filter" data-bind="foreach: fav_list">
+            <li data-bind="text: fav, click: $parent.favLocations" class="filter_item"></li>
+          </ul>
+          <p><input id="custom-filter" data-bind="textInput: custom_fav" placeholder="Search favourite"><button id="custom-fav-btn" data-bind="click: customFavFilter">Filter</button></p>
+          <div id="distance-filter" class="radio-holder list-filter" data-bind="foreach: distance_filter">
+            <p class="distance-radio"><input type="radio" name="distance"  data-bind="checked: check, checkedValue: value"> <span data-bind="text:distance"></span></p>
+          </div>
+        </div>
+        <div id="selected" data-bind="visible:place_set" class="list-filter">
+          <p><strong>Place Selected:</strong><span data-bind="text:place"></span>
+          <p><strong>Filter:</strong><span data-bind="text:fav_selected"></span><span data-bind="ifnot:show_distance ">,NearBy</span></p>
+          <p data-bind="visible:show_distance"><strong> Within The distance:</strong><span data-bind="text:check"></span>meters</p>
+        </div>
+
+      </aside>
+      <main id="map" >
+        <div id="map-error" class="map-error" data-bind="visible:mapError"><img src="images/globe.jpg" class="responsive-image" alt="globe">
+		<div><p class="error-text" >Sorry Could Not Load Try Again</p>
+		</div>
+      </main>
+    </div>
+    <script src="js/jquery.min.js" ></script> 
+    <script src="js/knockout-3.2.0.js" ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyChMfhYvEkhaT1ommxna0fUPuEZE4_BU9Q&callback=initMap&libraries=places,geometry" async defer></script> 
+    <script src="js/map.js" async defer></script>
+  </body>
+</html>
