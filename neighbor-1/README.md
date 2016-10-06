@@ -16,7 +16,7 @@ Open the Index.html in a browser and the application is set to run.
 
 -Default neighborhood is set where a generic mrker will be set.
 -Markers depicting cafes, hotels, restaurants , atms nearby will be displayed by default.
--You may filter out the desired category like atm , by entering desiredcategory and clicking the filter button(options provided now are atm,bank, restaurant,cafe ,hospitalor all) .
+-You may filter out the desired category like atm , by entering desiredcategory and clicking the filter button .
 -Enter the neighborhood of your choice in the space provided at the top  left corner and press the go Button,The marker to the desired Neighborhood will be set.
 -If You want to have a look at street view panorama or related Wiki Articles about your neighborhood,Just click on the marker and the desired information will appear on the infowindow.
 -If you want to filter or find a Nearby hospital,atm ,cafe or restaurant click on the find Button and click on the desired option that appears.
